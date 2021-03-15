@@ -3,18 +3,16 @@
 #include <math.h>
 #include<time.h>
 
-float L = 5 ,C = 0.0001 ,t =0.05 ; 
-
 //calcula o valor da equacao
 float CalculaQ(float R){
 	float raiz = 0, expoente = 0;
-	expoente = -1*((R*t)/(2*L));
-	raiz = (sqrt(1/(L*C)) - pow(R/(2*L),2) )*t;
+	expoente = -1*(R*0.005);
+	raiz = (sqrt(2000 - 0.01*pow(R,2))*0.05);
 	return (exp(expoente)*cos(raiz) - 0.01); 
 }
 
 int main (){
-	float Xr,x,y, pr , result, Xr2;
+	float Xr=0,x=0,y=0, er = 0, pr = 0.000001, result = 0, Xr2=0;
 	int i=1;
 
 	printf("Digite um numero para R1: ");
@@ -65,12 +63,12 @@ int main (){
 				printf("Raiz encontrada: %.4f", Xr);
 				exit(1);
 			} */
-
-			pr = fabs((Xr-Xr2)/Xr)*100; 
+			//calculo do erro 
+			er = fabs((Xr-Xr2)/Xr)*100; 
 			Xr2 = Xr;
 			i++;
-		}while( pr >= 0.000001 );   //alterei para 6 zeros de precisão, antes estava 0,00000000001
-		
+			//condicao de parada: tanto o erro, quanto o valor de x e y na equacao tem q se aproximar da precisao estabellecida 
+		}while(  er >= pr|| CalculaQ(x)>= pr || CalculaQ(y)>= pr );   //alterei para 6 zeros de precisão, antes estava 0,00000000001
 	}	
 	printf("Valor da Resistencia: %.4f \n" ,Xr);
 	return 0 ;
