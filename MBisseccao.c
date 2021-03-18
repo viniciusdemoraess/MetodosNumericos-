@@ -39,7 +39,7 @@ int main (){
 			}
 		}	
 		exit(1); */
-	if(CalculaQ(x) * CalculaQ(y) >= 0)
+	if(CalculaQ(x) * CalculaQ(y) > 0)
 	{
 		printf("Raiz nao esta nesse intervalo, tente novamente" );
 		exit(1); 
@@ -77,7 +77,7 @@ int main (){
 
 /* HISTÓRICO DE TESTES
  
-   X       Y        RESISTENCIA      PRECISÃO
+   X       Y        RESISTENCIA      ERRO
 22070      340       483,3051        0.0000063144
 1472       172       240,4426        0.0000063461
 1470       170       780,8721        0,0000078163
