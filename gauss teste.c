@@ -8,7 +8,9 @@ void main (){
     float X[N];
 
     // Valores pré definidos
-    float M[N][N+1] = {{4, 1, 2, 7},{1, 7, 3, 19},{3, 2, 10, 71}};
+    float M[N][N+1] = {{1, -3, 2, 11},
+                       {-2, 8, -1, -15},
+                       {4, -6, 5, 29}};
 
 
     //Caso queira incluir os dados na matriz
@@ -44,7 +46,7 @@ void main (){
     }
 
     X[N-1] = M[N-1][N] / M[N-1][N-1]; // Primeria variavel que obtamos
-    
+
     //Mostra a matriz depois da eliminação progressiva
     printf("\n");
     for(i = 0; i<N; i++){
